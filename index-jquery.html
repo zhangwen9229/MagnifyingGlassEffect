@@ -3,7 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="css/magnifying.css">
+	<style type="text/css">
+		html,body{padding:0;margin:0;height: 100%;width:100%;}
+		body{background:#ccc;padding-top:50px;}
+		#main{position:relative;width:980px;margin:0 auto;}
+		#div1 , #div2{overflow:hidden; position:absolute;}
+		#div1{left:0;top:0px;width:320px;height:200px;}
+		#div2{left:320px;top:0px;display:none;width:640px;height:400px;}
+		#max_img{position:absolute;left:0;top:0;border:none;}
+		#ospan{background:#fff;opacity:0.3;position:absolute;top:0;left0;z-index:9999;width:100px;height:100px;display:none;}
+	</style>
 </head>
 <body>
 	<div id="main">
@@ -16,6 +25,6 @@
 		</div>
 	</div>
 	<script src="js/jquery-1.8.3.min.js"></script>
-	<script src="js/magnifying.js"></script>
+	<script src="js/magnifying-jquery.js"></script>
 </body>
 </html>
