@@ -35,10 +35,19 @@
             bigImgDiv.setAttribute("id", "magBigImgDiv");
             bigImgDiv.innerHTML = '<img id="mag_max_img" alt="加载中..." src="" />'
             main.appendChild(bigImgDiv);
-            document.getElementById("mag_max_img").onload = function(e) { //利用回掉，让浏览器先知道如何处理图片
-                bigImgWidth = e.target.width;
-                bigImgHeight = e.target.height;
-            }
+            var img_big = document.getElementById("mag_max_img");
+            img_big.src = defaultOpts.bigImgUrl;
+            if (img_big.naturalWidth) { // 现代浏览器
+		        bigImgWidth = img_big.naturalWidth
+		        bigImgHeight = img_big.naturalHeight
+		    } else { // IE6/7/8
+		        var image = new Image()
+		        image.onload = function() {
+		        	bigImgWidth = image.width
+		        	bigImgHeight = image.height;
+		        }
+		        image.src = img_big.src
+		    }
             document.getElementById("mag_max_img").src = defaultOpts.bigImgUrl;
         };
 
